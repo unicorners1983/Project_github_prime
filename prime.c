@@ -3,18 +3,35 @@ int is_prim(int n);
 
 int main()
 {
-    int i,n;
-    for(n=4;n<1000;n=n+2)
+    int i,n,label = 1;
+    for(n=4;n<100000;n=n+2)
     {
          for(i=n/2;i>0;i--)
          {
             if((is_prim(i) == 1) && (is_prim(n-i) == 1))
             {
-                 printf("%d=%d+%d\n",n,i,n-i);
+                label = 0;
+                //printf("%d=%d+%d\n",n,i,n-i);
                 break;
              }
         }
+
+        if (label == 1)
+        {
+            break;
+        }
+
     }
+
+     if (label == 1)
+        {
+            printf("exist number which could not be divided to two prime %d", label);
+        }
+        else
+        {
+            printf("There is no number ");
+            
+        }  
  
 }
 
